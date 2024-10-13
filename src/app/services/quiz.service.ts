@@ -10,7 +10,7 @@ export class QuizService {
 
   constructor() { }
 
-  getAllCategories(): Observable<Quiz> {
+  getAllQuiz(): Observable<Quiz[]> {
     return of(quizData);
   }
 }

@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div class="container border rounded-bottom">
+  <h2 class="text-center bg-primary-subtle p-4">Quiz Categories</h2>
+  <div class="row justify-content-center">
+    @for (category of categories; track $index) {
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <app-card-category [category]="category"></app-card-category>
+    </div>
+    }
+  </div>
+</div>
