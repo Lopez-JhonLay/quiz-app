@@ -1,0 +1,13 @@
+<div class="container border rounded-bottom">
+  <app-banner-title [bannerTitle]="category"></app-banner-title>
+  <div class="row justify-content-center">
+    @for (quiz of quizzes; track $index) {
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <app-quiz-card
+        [quizzes]="quizzes"
+        [quizTitle]="quiz.title"
+      ></app-quiz-card>
+    </div>
+    }
+  </div>
+</div>

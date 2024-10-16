@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Category } from '../../../shared/models/quiz';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-category',
@@ -8,11 +8,13 @@ import { Category } from '../../../shared/models/quiz';
   templateUrl: './card-category.component.html',
   styleUrl: './card-category.component.css'
 })
-export class CardCategoryComponent implements OnInit{
-  @Input() category!: Category;
+export class CardCategoryComponent {
+  @Input() category!: string;
 
-  ngOnInit(): void {
-    console.log(this.category.name);
-    
+  constructor(private router: Router) { }
+
+  navigateToCategory(category: string): void {
+    category = this.category;
+    this.router.navigate([`/${category}`]);
   }
 }
