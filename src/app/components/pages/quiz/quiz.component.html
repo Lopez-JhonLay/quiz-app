@@ -33,10 +33,11 @@
         </button>
         <button class="btn btn-success" (click)="submitAnswer()">Next</button>
       </div>
-      } @if (currentQuestion >= quiz[0].questions.length) {
+      } @if (quizCompleted) {
       <div>
         <h3>Quiz Completed!</h3>
         <p>You have answered all the questions.</p>
+        <p>Your score is {{ score }} out of {{ totalQuestions }}</p>
       </div>
       }
     </div>
