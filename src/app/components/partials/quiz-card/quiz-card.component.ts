@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Quiz } from '../../../shared/models/quiz';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-card',
@@ -9,6 +10,13 @@ import { Quiz } from '../../../shared/models/quiz';
   styleUrl: './quiz-card.component.css'
 })
 export class QuizCardComponent {
-  @Input() quizzes: Quiz[] = [];
+  @Input() quizId!: number;
+  @Input() quizCategory!: string;
   @Input() quizTitle!: string;
+
+  constructor(private router: Router) { }
+
+  navigateToQuiz(category: string, id: number): void {
+    this.router.navigate([`/${category}/${id}`]);
+  }
 }

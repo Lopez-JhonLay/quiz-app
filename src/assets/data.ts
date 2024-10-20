@@ -6,7 +6,7 @@ export const quizData: Quiz[] = [
     title: 'General Knowledge Quiz',
     category: {
       id: 1,
-      name: 'General Knowledge'
+      name: 'General-Knowledge'
     },
     questions: [
       {

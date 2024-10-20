@@ -1,0 +1,45 @@
+<div class="container border rounded-bottom">
+  <app-banner-title [bannerTitle]="quizTitle"></app-banner-title>
+  <div>
+    @if (quiz && quiz.length > 0) {
+    <div class="card p-2 mb-2">
+      @if (currentQuestion < quiz[0].questions.length) {
+      <div>
+        <h4>Question {{ currentQuestion + 1 }}:</h4>
+        <div class="card-header">
+          {{ quiz[0].questions[currentQuestion].text }}
+        </div>
+
+        @for (option of quiz[0].questions[currentQuestion].options; track
+        $index) {
+        <div class="list-group list-group-flush">
+          <label class="list-group-item">
+            <input
+              type="radio"
+              name="answer"
+              [value]="option.id"
+              [(ngModel)]="selectedOptionId"
+            />
+            {{ option.text }}
+          </label>
+        </div>
+        }
+        <button
+          class="btn btn-danger me-2"
+          (click)="goBack()"
+          [disabled]="currentQuestion === 0"
+        >
+          Back
+        </button>
+        <button class="btn btn-success" (click)="submitAnswer()">Next</button>
+      </div>
+      } @if (currentQuestion >= quiz[0].questions.length) {
+      <div>
+        <h3>Quiz Completed!</h3>
+        <p>You have answered all the questions.</p>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</div>

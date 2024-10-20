@@ -14,7 +14,6 @@ export class CardCategoryComponent {
   constructor(private router: Router) { }
 
   navigateToCategory(category: string): void {
-    category = this.category;
     this.router.navigate([`/${category}`]);
   }
 }
