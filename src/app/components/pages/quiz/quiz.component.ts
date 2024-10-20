@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BannerTitleComponent } from '../../partials/banner-title/banner-title.component';
 import { QuizService } from '../../../services/quiz.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Quiz } from '../../../shared/models/quiz';
 import { FormsModule } from '@angular/forms';
 
@@ -27,7 +27,8 @@ export class QuizComponent {
 
   constructor(
     private quizService: QuizService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -93,6 +94,11 @@ export class QuizComponent {
     }, 0);
     
     // Display the score (alert is optional)
-    alert(`Your score is ${this.score} out of ${this.totalQuestions}`);
+    // alert(`Your score is ${this.score} out of ${this.totalQuestions}`);
+
+    this.quizService.userScore = this.score;
+    this.quizService.totalQuestions = this.totalQuestions;
+
+    this.router.navigateByUrl('/result');
   }
 }

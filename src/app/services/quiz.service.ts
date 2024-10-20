@@ -7,6 +7,8 @@ import { Quiz } from '../shared/models/quiz';
   providedIn: 'root'
 })
 export class QuizService {
+  userScore = 0;
+  totalQuestions = 0;
 
   constructor() { }
 
